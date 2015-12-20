@@ -1,35 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vimeo4J by chaotic-studio</title>
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
-    <title>Vimeo by clickntap</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>Vimeo4J</h1>
+        <p>Java SDK for Vimeo API 3.0</p>
 
-    <header>
-      <div class="container">
-        <h1>Vimeo</h1>
-        <h2>Java SDK for Vimeo API 3.0</h2>
+        <p class="view"><a href="https://github.com/chaotic-studio/Vimeo">View the Project on GitHub <small>chaotic-studio/Vimeo</small></a></p>
 
-        <section id="downloads">
-          <a href="https://github.com/clickntap/Vimeo/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/clickntap/Vimeo/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/clickntap/Vimeo" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
 
-    <div class="container">
-      <section id="main_content">
-        <h3>
-<a name="welcome-to-java-vimeo-api-30" class="anchor" href="#welcome-to-java-vimeo-api-30"><span class="octicon octicon-link"></span></a>Welcome to Java Vimeo API 3.0.</h3>
+        <ul>
+          <li><a href="https://github.com/chaotic-studio/Vimeo/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/chaotic-studio/Vimeo/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/chaotic-studio/Vimeo">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="this-is-a-fork-of-the-official-java-sdk-for-vimeo-api-30" class="anchor" href="#this-is-a-fork-of-the-official-java-sdk-for-vimeo-api-30" aria-hidden="true"><span class="octicon octicon-link"></span></a>This is a fork of the official Java SDK for Vimeo API 3.0</h2>
+
+<p>My goal for this fork is to improve the parts that I believe are not implemented the way they should be. Normally I would have simply submit a pull request to the original, but in this case I think that my desired changes would be to different from the original design to be appropriate.</p>
+
+<hr>
 
 <p>To use this api you’ll first need to register your app from Vimeo:</p>
 
@@ -38,65 +42,58 @@
 <p>Then you'll need to generate an Access Token with upload access.
 The generated Token is all you need to use the Java Vimeo API 3.0.</p>
 
-<div class="highlight highlight-python"><pre>
-<span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">clickntap</span><span class="o">.</span><span class="n">vimeo</span><span class="p">;</span>
+<hr>
 
-<span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
+<p>package com.clickntap.vimeo;</p>
 
-<span class="n">public</span> <span class="k">class</span> <span class="nc">VimeoSample</span> <span class="p">{</span>
+<p>import java.io.File;</p>
 
-  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
-    <span class="n">Vimeo</span> <span class="n">vimeo</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vimeo</span><span class="p">(</span><span class="s">"[token]"</span><span class="p">);</span> 
+<p>public class VimeoSample {</p>
 
-    <span class="o">//</span><span class="n">add</span> <span class="n">a</span> <span class="n">video</span>
-    <span class="n">boolean</span> <span class="n">upgradeTo1080</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-    <span class="n">String</span> <span class="n">videoEndPoint</span> <span class="o">=</span> <span class="n">vimeo</span><span class="o">.</span><span class="n">addVideo</span><span class="p">(</span><span class="n">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"/Users/tmendici/Downloads/Video.AVI"</span><span class="p">),</span> <span class="n">upgradeTo1080</span><span class="p">);</span>
+<p>public static void main(String[] args) throws Exception {
+    Vimeo vimeo = new Vimeo("[token]"); </p>
 
-    <span class="o">//</span><span class="n">get</span> <span class="n">video</span> <span class="n">info</span>
-    <span class="n">VimeoResponse</span> <span class="n">info</span> <span class="o">=</span> <span class="n">vimeo</span><span class="o">.</span><span class="n">getVideoInfo</span><span class="p">(</span><span class="n">videoEndPoint</span><span class="p">);</span>
-    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">info</span><span class="p">);</span>
+<pre><code>//add a video
+boolean upgradeTo1080 = true;
+String videoEndPoint = vimeo.addVideo(new File("/Users/tmendici/Downloads/Video.AVI"), upgradeTo1080);
 
-    <span class="o">//</span><span class="n">edit</span> <span class="n">video</span>
-    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Name"</span><span class="p">;</span>
-    <span class="n">String</span> <span class="n">desc</span> <span class="o">=</span> <span class="s">"Description"</span><span class="p">;</span>
-    <span class="n">String</span> <span class="n">license</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span> <span class="o">//</span><span class="n">see</span> <span class="n">Vimeo</span> <span class="n">API</span> <span class="n">Documentation</span>
-    <span class="n">String</span> <span class="n">privacyView</span> <span class="o">=</span> <span class="s">"nobody"</span><span class="p">;</span> <span class="o">//</span><span class="n">see</span> <span class="n">Vimeo</span> <span class="n">API</span> <span class="n">Documentation</span>
-    <span class="n">String</span> <span class="n">privacyEmbed</span> <span class="o">=</span> <span class="s">"whitelist"</span><span class="p">;</span> <span class="o">//</span><span class="n">see</span> <span class="n">Vimeo</span> <span class="n">API</span> <span class="n">Documentation</span>
-    <span class="n">boolean</span> <span class="n">reviewLink</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
-    <span class="n">vimeo</span><span class="o">.</span><span class="n">updateVideoMetadata</span><span class="p">(</span><span class="n">videoEndPoint</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">desc</span><span class="p">,</span> <span class="n">license</span><span class="p">,</span> <span class="n">privacyView</span><span class="p">,</span> <span class="n">privacyEmbed</span><span class="p">,</span> <span class="n">reviewLink</span><span class="p">);</span>
+//get video info
+VimeoResponse info = vimeo.getVideoInfo(videoEndPoint);
+System.out.println(info);
 
-    <span class="o">//</span><span class="n">add</span> <span class="n">video</span> <span class="n">privacy</span> <span class="n">domain</span>
-    <span class="n">vimeo</span><span class="o">.</span><span class="n">addVideoPrivacyDomain</span><span class="p">(</span><span class="n">videoEndPoint</span><span class="p">,</span> <span class="s">"clickntap.com"</span><span class="p">);</span>
+//edit video
+String name = "Name";
+String desc = "Description";
+String license = ""; //see Vimeo API Documentation
+String privacyView = "nobody"; //see Vimeo API Documentation
+String privacyEmbed = "whitelist"; //see Vimeo API Documentation
+boolean reviewLink = false;
+vimeo.updateVideoMetadata(videoEndPoint, name, desc, license, privacyView, privacyEmbed, reviewLink);
 
-    <span class="o">//</span><span class="n">delete</span> <span class="n">video</span>
-    <span class="n">vimeo</span><span class="o">.</span><span class="n">removeVideo</span><span class="p">(</span><span class="n">videoEndPoint</span><span class="p">);</span>
+//add video privacy domain
+vimeo.addVideoPrivacyDomain(videoEndPoint, "clickntap.com");
 
-  <span class="p">}</span>
+//delete video
+vimeo.removeVideo(videoEndPoint);
+</code></pre>
 
-<span class="p">}</span>
+<p>}</p>
 
+<p>}</p>
 
-</pre></div>
+<pre><code>
+The class VideoResponse provides response code and json response, see Vimeo API documentation to check errors.
 
-<p>The class VideoResponse provides response code and json response, see Vimeo API documentation to check errors.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Java Vimeo API 3.0? Contact <a href="mailto:info@clickntap.com">info@clickntap.com</a> and we’ll help you sort it out.</p>
+### Support or Contact
+Having trouble with Java Vimeo API 3.0? Contact info@clickntap.com and we’ll help you sort it out.
+</code></pre>
       </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/chaotic-studio">chaotic-studio</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-55353151-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
