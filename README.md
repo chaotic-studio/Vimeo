@@ -1,14 +1,17 @@
-### Welcome to Java Vimeo API 3.0.
+###  This is a fork of the official Java SDK for Vimeo API 3.0
+
+My goal for this fork is to improve the parts that I believe are not implemented the way they should be. Normally I would have simply submit a pull request to the original, but in this case I think that my desired changes would be to different from the original design to be appropriate.
+***
 To use this api you’ll first need to register your app from Vimeo:
 
 https://developer.vimeo.com/apps
 
 Then you'll need to generate an Access Token with upload access.
 The generated Token is all you need to use the Java Vimeo API 3.0.
-
+***
 ```java
 
-package com.clickntap.vimeo;
+package org.chaotic-studio.vimeo;
 
 import java.io.File;
 
@@ -43,10 +46,7 @@ public class VimeoSample {
   }
 
 }
-
-
-```
-
+***
 The class VideoResponse provides response code and json response, see Vimeo API documentation to check errors.
 
 ### Use with Maven
@@ -54,12 +54,11 @@ The class VideoResponse provides response code and json response, see Vimeo API 
 ```xml
 
 <dependency>
-  <groupId>com.clickntap</groupId>
-  <artifactId>Vimeo</artifactId>
-  <version>1.4</version>
+  <groupId>org.chaotic-studio</groupId>
+  <artifactId>Vimeo4J</artifactId>
+  <version>1.0</version>
 </dependency>
 
 ```
-
 ### Support or Contact
-Having trouble with Java Vimeo API 3.0? Contact info@clickntap.com and we’ll help you sort it out.
+Having trouble with Vimeo4J? Contact support@chaotic-studio.org and I will help you sort it out.
